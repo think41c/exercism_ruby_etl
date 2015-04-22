@@ -2,18 +2,20 @@ class ETL
   def self.transform(old)
     newer_hash = {}
     new_hash = old.invert 
-    puts old
-    puts new_hash
+    # puts old
+    # puts new_hash
     # Invert the hash, downcase the key. 
     # Most likely use a Hash.map function.
     new_hash.map do |x, y|
       a = p x.join.downcase
-      p a
+      # p a
       newer_hash[a] = y
-      p newer_hash
+      # p newer_hash
       # [x.capitalize, y]
+      # p newer_hash
     end
-
+    # p newer_hash
+    newer_hash
   end
 
 
