@@ -1,16 +1,22 @@
 class ETL
   def self.transform(old)
+    @old = old
     newer_hash = {}
-    new_hash = old.invert 
-    new_hash.map do |x, y|
-      a = p x.join.downcase
-      newer_hash[a] = y
+
+    invert_hash
+
+    @a.each do |x, y|
+        b = x.downcase
+        newer_hash[b] = y
     end
     newer_hash
   end
 
+  def self.invert_hash
+    @a = Hash[@old.flat_map { |k,v| v.product([k]) }]
+  end
 
 end
 
-old = { 1 => ['A'] , 2 => ["B"]}
-ETL.transform(old)
+
+p ETL.transform({ 1 => %w(A E I O U) })
